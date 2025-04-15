@@ -21,6 +21,9 @@ export function Footer() {
           {/* License */}
           <a
             className="text-xs text-blue-200/80 hover:text-white transition-colors"
+            href="/license"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             MIT License
           </a>
