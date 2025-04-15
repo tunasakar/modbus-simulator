@@ -29,7 +29,9 @@ jobs:
 
       - name: Run SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -Dsonar.projectKey=tunasakar_modbus-simulator
+            -Dsonar.organization=tunasakar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: tunasakar_modbus-simulator
-          SONAR_ORGANIZATION: tunasakar
