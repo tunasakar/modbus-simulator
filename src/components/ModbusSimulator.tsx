@@ -2,14 +2,16 @@ import React from 'react';
 import { SensorCard } from './SensorCard';
 import { FunctionCodeHelp } from './FunctionCodeHelp';
 import { SENSOR_TYPES } from '../types/sensors';
-import { Github, RefreshCw, AlertTriangle } from 'lucide-react';
+import { Github, AlertTriangle, Clock } from 'lucide-react';
 
 interface ModbusSimulatorProps {
   countdown: number;
+  shouldRefresh: boolean;
 }
 
-export function ModbusSimulator({ countdown }: ModbusSimulatorProps) {
+export function ModbusSimulator({ countdown, shouldRefresh }: ModbusSimulatorProps) {
   const [showFunctionCodes, setShowFunctionCodes] = React.useState(false);
+  const showTimer = import.meta.env.VITE_SHOW_TIMER !== 'false';
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -17,24 +19,50 @@ export function ModbusSimulator({ countdown }: ModbusSimulatorProps) {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
+  const isWarningTime = countdown <= 30;
+
   return (
     <div className="min-h-screen flex justify-center">
       <div className="max-w-[1200px] w-full p-4 lg:p-6 space-y-4 lg:space-y-6">
-        {/* WebSocket Notice */}
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 flex items-start gap-3 text-amber-800">
-          <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-          <div className="flex-1 space-y-1">
-            <div className="flex items-center justify-between">
-              <p className="font-medium">Demo Environment Notice</p>
-              <div className="text-amber-900 font-mono bg-amber-100/80 px-3 py-1 rounded-full flex items-center gap-2">
-                <RefreshCw className="w-3 h-3 animate-spin" />
-                {formatTime(countdown)}
+        {/* Demo Environment Notice */}
+        <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-lg shadow-lg overflow-hidden">
+          <div className="flex items-stretch">
+            {/* Main Content */}
+            <div className="flex-grow p-4 flex items-center gap-3">
+              <div className="flex-shrink-0 bg-yellow-100 p-2 rounded-full">
+                <AlertTriangle className="w-5 h-5 text-yellow-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-yellow-800">Demo Environment Notice</h3>
+                <p className="text-sm text-yellow-700 mt-0.5">
+                  For stability and security reasons, all demo state is reset periodically. 
+                  For production usage, please deploy your own instance.
+                </p>
               </div>
             </div>
-            <p className="text-sm">
-              For stability and security reasons, all demo state is reset every 3 minutes. 
-              For production usage, please deploy your own instance using the source code provided on GitHub.
-            </p>
+
+            {/* Divider */}
+            {showTimer && (
+              <>
+                <div className="w-px bg-yellow-200 my-4"></div>
+
+                {/* Timer Section */}
+                <div className="p-4 bg-yellow-100/50 flex items-center gap-3">
+                  <div className="flex flex-col items-center">
+                    <div className="flex items-center gap-2 text-yellow-800">
+                      <Clock className={`w-4 h-4 ${isWarningTime ? 'animate-spin text-red-600' : ''}`} />
+                      <span className="text-sm font-medium">Reset in</span>
+                    </div>
+                    <div className={`
+                      font-mono font-bold text-lg
+                      ${isWarningTime ? 'text-red-600 animate-pulse' : 'text-yellow-900'}
+                    `}>
+                      {formatTime(countdown)}
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -98,6 +126,7 @@ export function ModbusSimulator({ countdown }: ModbusSimulatorProps) {
             <SensorCard
               key={sensor.id}
               sensor={sensor}
+              shouldStop={shouldRefresh}
             />
           ))}
         </div>

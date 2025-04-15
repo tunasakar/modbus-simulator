@@ -116,6 +116,46 @@ src/
 └── utils/             # Utility functions
 ```
 
+# Timer Control Documentation
+
+## Overview
+The demo environment timer can be controlled through environment variables. This document explains how to disable or enable the timer display.
+
+## Configuration
+
+### Using Environment Variables
+
+Create or modify the `.env` file in your project root:
+
+```env
+VITE_SHOW_TIMER=false
+```
+
+### Values
+- `true` - Shows the timer (default)
+- `false` - Hides the timer
+
+## Implementation Details
+
+The timer visibility is controlled by the `showTimer` state in `ModbusSimulator.tsx`. To properly implement this:
+
+1. Update your `.env` file with the desired setting
+2. The environment variable will be automatically loaded by Vite
+3. The timer section will be conditionally rendered based on this setting
+
+## Example Usage
+
+```typescript
+// In ModbusSimulator.tsx
+const showTimer = import.meta.env.VITE_SHOW_TIMER !== 'false';
+```
+
+## Notes
+- The timer functionality continues to run in the background even when hidden
+- Changes to the environment variable require a restart of the development server
+- For production builds, ensure the environment variable is set during the build process
+
+
 ## 📝 License
 
 This project is licensed under the Creative Commons Attribution 4.0 International License - see the [LICENSE](LICENSE) file for details.

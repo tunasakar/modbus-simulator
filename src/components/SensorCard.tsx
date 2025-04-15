@@ -10,6 +10,7 @@ import { useModbusSimulation } from '../hooks/useModbusSimulation';
 
 interface SensorCardProps {
   sensor: SensorType;
+  shouldStop?: boolean;
 }
 
 const SENSOR_ICONS = {
@@ -18,7 +19,7 @@ const SENSOR_ICONS = {
   flow: MdWaves,
 };
 
-export function SensorCard({ sensor }: SensorCardProps) {
+export function SensorCard({ sensor, shouldStop }: SensorCardProps) {
   const [config, setConfig] = React.useState<ModbusConfig>({
     ...sensor.config.modbusConfig,
     unitId: sensor.config.unitId
@@ -27,6 +28,12 @@ export function SensorCard({ sensor }: SensorCardProps) {
   const [error, setError] = React.useState<string | null>(null);
   const [range, setRange] = React.useState({ min: sensor.config.min, max: sensor.config.max });
   const [isEditingRange, setIsEditingRange] = React.useState(false);
+
+  React.useEffect(() => {
+    if (shouldStop && isRunning) {
+      setIsRunning(false);
+    }
+  }, [shouldStop]);
 
   const Icon = SENSOR_ICONS[sensor.id as keyof typeof SENSOR_ICONS];
   const functionCodeInfo = FUNCTION_CODE_DESCRIPTIONS[config.functionCode];
