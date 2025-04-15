@@ -3,6 +3,7 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=tunasakar_modbus-simulator&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=tunasakar_modbus-simulator)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=tunasakar_modbus-simulator&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=tunasakar_modbus-simulator)
 [![SonarCloud](https://github.com/tunasakar/modbus-simulator/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/tunasakar/modbus-simulator/actions/workflows/sonarcloud.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Modbus TCP Multi-Sensor Simulator
 
@@ -164,7 +165,7 @@ const showTimer = import.meta.env.VITE_SHOW_TIMER !== 'false';
 
 ## 📝 License
 
-This project is licensed under the Creative Commons Attribution 4.0 International License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 
 ## 👤 Author
 
