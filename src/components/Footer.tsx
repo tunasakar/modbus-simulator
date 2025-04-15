@@ -20,12 +20,9 @@ export function Footer() {
 
           {/* License */}
           <a
-            href="https://creativecommons.org/licenses/by/4.0/"
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-xs text-blue-200/80 hover:text-white transition-colors"
           >
-            Licensed under Creative Commons Attribution 4.0
+            MIT License
           </a>
         </div>
       </div>
