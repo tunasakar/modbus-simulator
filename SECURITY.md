@@ -2,7 +2,7 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability within the Modbus TCP Multi-Sensor Simulator, please send an email to tuna@tunasakar.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within the Modbus TCP Multi-Sensor Simulator, please send an email to  tunasakar[at]pm.me. All security vulnerabilities will be promptly addressed.
 
 Please include the following information in your report:
 - Type of vulnerability
@@ -18,26 +18,21 @@ Please include the following information in your report:
 ### WebSocket Security
 - WebSocket connections are only accepted from the same origin
 - All data transmitted via WebSocket is validated and sanitized
-- Rate limiting is implemented to prevent DoS attacks
 - Invalid messages are logged and connections are terminated if necessary
 
 ### Input Validation
 - All Modbus parameters are validated against predefined ranges
 - Function codes are restricted to supported values
-- Input sanitization is performed on all user-provided data
-- Range validation is enforced for sensor values
+
 
 ### Data Safety
 - No sensitive data is stored or transmitted
 - All data is ephemeral and exists only in memory
 - No permanent storage is implemented
-- Auto-refresh mechanism prevents memory leaks
+
 
 ### Network Security
-- CORS policies are properly configured
 - Only required ports are exposed
-- WebSocket connections are monitored for abuse
-- Rate limiting is implemented on all endpoints
 
 ### Best Practices
 1. Keep all dependencies up to date
@@ -86,5 +81,4 @@ When deploying this application:
 ## Contact
 
 For security-related inquiries, contact:
-- Email: security@tunasakar.com
-- PGP Key: [security.asc](https://tunasakar.com/security.asc)
+- Email: tunasakar[at]pm.me
