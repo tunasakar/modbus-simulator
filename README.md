@@ -2,7 +2,7 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=tunasakar_modbus-simulator&metric=bugs)](https://sonarcloud.io/summary/new_code?id=tunasakar_modbus-simulator)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=tunasakar_modbus-simulator&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=tunasakar_modbus-simulator)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=tunasakar_modbus-simulator&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=tunasakar_modbus-simulator)
-[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=tunasakar_modbus-simulator)
+[![SonarCloud](https://github.com/tunasakar/modbus-simulator/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/tunasakar/modbus-simulator/actions/workflows/sonarcloud.yml)
 
 # Modbus TCP Multi-Sensor Simulator
 
