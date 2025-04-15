@@ -156,9 +156,9 @@ const showTimer = import.meta.env.VITE_SHOW_TIMER !== 'false';
 ```
 
 ## Notes
-- The timer functionality continues to run in the background even when hidden
-- Changes to the environment variable require a restart of the development server
-- For production builds, ensure the environment variable is set during the build process
+- The timer functionality continues to run in the background even when hidden.
+- Changes to the environment variable require a restart of the development server.
+- For production builds, ensure the environment variable is set during the build process.
 
 
 ## 📝 License
